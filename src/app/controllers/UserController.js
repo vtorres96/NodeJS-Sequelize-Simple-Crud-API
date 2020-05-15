@@ -47,7 +47,7 @@ module.exports = {
 			{ where: { id: id } }
 		)
 		.then(user => {
-			return res.status(200).json(user);
+			return res.status(200).json('Alterado com sucesso');
 		})
 		.catch(error => {
 			return res.status(400).json('Falha ao processar requisição. ' + error);
