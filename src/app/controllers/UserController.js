@@ -13,7 +13,10 @@ module.exports = {
 	},
 
 	async searchById(req, res){
-        await User.findByPk(req.params.id)
+
+		let id = req.params.id;
+
+        await User.findByPk(id)
         .then(user => {
             return res.status(200).json(user)
         })
