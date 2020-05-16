@@ -5,12 +5,22 @@ module.exports = {
 	async index(req, res) {
 		await User.findAll()
 		.then(users => {
-			return res.json(users)
+			return res.status(200).json(users)
 		})
 		.catch(error => {
 			return res.status(404).json(error)
 		});
 	},
+
+	async searchById(req, res){
+        await User.findByPk(req.params.id)
+        .then(user => {
+            return res.status(200).json(user)
+        })
+        .catch(error => {
+            return res.status(400).json(error)
+        })
+    },
 
 	async create(req, res) {
 		const {
